@@ -16,7 +16,7 @@ class AppTheme {
     900: Color(0xFF773610),
   };
 
-  static const MaterialColor _brandColor =
+  static const MaterialColor brandColor =
       MaterialColor(0xFF773610, brandSwatch);
 
   static const fontFamily = 'Kanit';
@@ -92,7 +92,15 @@ class AppTheme {
   }) {
     return ThemeData(
       textTheme: _textTheme,
-      primarySwatch: primarySwatch ?? _brandColor,
+      primarySwatch: primarySwatch ?? brandColor,
+      buttonTheme: const ButtonThemeData(
+        buttonColor:Colors.red,
+        shape: RoundedRectangleBorder(),
+      ),
+      appBarTheme: const AppBarTheme(
+        centerTitle: true,
+        elevation: 5.0
+      )
     );
   }
 }

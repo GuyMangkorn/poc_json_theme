@@ -29,86 +29,106 @@
         "800": "#1e293b",
         "900": "#0f172a"
       }
+    },
+    "greenColor": {
+      "primary": "#ef4444",
+      "swatches": {
+        "50": "#fef2f2",
+        "100": "#fee2e2",
+        "200": "#fecaca",
+        "300": "#fca5a5",
+        "400": "#f87171",
+        "500": "#ef4444",
+        "600": "#dc2626",
+        "700": "#b91c1c",
+        "800": "#991b1b",
+        "900": "#7f1d1d"
+      }
     }
   },
   "theme": {
     "scaffoldBackgroundColor": "#d3d3d3",
     "primaryColor": "#37474f",
+    "appBarTheme": {
+      "centerTitle": true,
+      "elevation": 5.0
+    },
+    "buttonTheme": {
+      "alignedDropdown": false,
+      "height": 36.0,
+      "layoutBehavior": "padded",
+      "minWidth": 88.0,
+      "padding": {
+        "bottom": 0.0,
+        "left": 16.0,
+        "right": 16.0,
+        "top": 0.0
+      },
+      "shape": {
+        "type": "stadium"
+      },
+      "textTheme": "normal"
+    },
     "textTheme": {
       "bodyLarge": {
-        "color": "#dd000000",
         "fontFamily": "Kanit",
         "fontSize": 16.0
       },
       "bodyMedium": {
-        "color": "#dd000000",
         "fontFamily": "Kanit",
         "fontSize": 14.0
       },
       "bodySmall": {
-        "color": "#8a000000",
         "fontFamily": "Kanit",
         "fontSize": 12.0
       },
       "displayLarge": {
-        "color": "#8a000000",
         "fontFamily": "Kanit",
         "fontSize": 44.0
       },
       "displayMedium": {
-        "color": "#8a000000",
         "fontFamily": "Kanit",
         "fontSize": 40.0
       },
       "displaySmall": {
-        "color": "#8a000000",
         "fontFamily": "Kanit",
         "fontSize": 36.0
       },
       "headlineLarge": {
-        "color": "#8a000000",
         "fontFamily": "Kanit",
         "fontSize": 32.0
       },
       "headlineMedium": {
-        "color": "#8a000000",
         "fontFamily": "Kanit",
         "fontSize": 28.0
       },
       "headlineSmall": {
-        "color": "#dd000000",
         "fontFamily": "Kanit",
         "fontSize": 24.0
       },
       "labelLarge": {
-        "color": "#dd000000",
         "fontFamily": "Kanit",
         "fontSize": 14.0
       },
       "labelMedium": {
-        "color": "#ff000000",
         "fontFamily": "Kanit",
         "fontSize": 12.0
       },
       "labelSmall": {
-        "color": "#ff000000",
         "fontFamily": "Kanit",
         "fontSize": 11.0
       },
       "titleLarge": {
-        "color": "#dd000000",
         "fontFamily": "Kanit",
         "fontSize": 22.0,
         "fontWeight": "w700"
       },
       "titleMedium": {
-        "color": "#dd000000",
         "fontFamily": "Kanit",
         "fontSize": 16.0,
         "fontWeight": "w700"
       },
       "titleSmall": {
-        "color": "#ff000000",
         "fontFamily": "Kanit",
         "fontSize": 14.0,
         "fontWeight": "w700"
