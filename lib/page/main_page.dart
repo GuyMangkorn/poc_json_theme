@@ -8,31 +8,23 @@ import 'package:provider/provider.dart';
 
 import '../theme.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class HomePage extends StatefulWidget {
+  const HomePage({super.key, required this.title});
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
+class _HomePageState extends State<HomePage> {
   Future<void> _initTheme() async {
     final themeStr =
         await rootBundle.loadString('assets/json/first_theme.json');
     final themeJson = json.decode(themeStr);
-    final brandColor = ThemeDecoder.decodeMaterialColor(
-      themeJson['color']['grayColor'],
-    );
-    
+    // final brandColor = ThemeDecoder.decodeMaterialColor(
+    //   themeJson['color']['grayColor'],
+    // );
+
     final theme = ThemeDecoder.decodeThemeData(
           themeJson['theme'],
           validate: true,
@@ -41,8 +33,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
       final themeService = context.read<ThemeService>();
-      themeService.setTheme(theme);
-      themeService.setMaterialColor(materialColor: brandColor);
+      // themeService.setTheme(theme);
     });
   }
 
@@ -54,39 +45,97 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
+    final customTheme = Theme.of(context).extension<CustomThemeData>()!;
+    final themeService = context.read<ThemeService>();
+    return SafeArea(
+      child: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    themeService.loadThemeFormNumber(key: ThemeType.themeOne);
+                  },
+                  child: const Text('Theme one'),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    themeService.loadThemeFormNumber(key: ThemeType.themeTwo);
+                  },
+                  child: const Text('Theme two'),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    themeService.loadThemeFormNumber(key: ThemeType.themeThree);
+                  },
+                  child: const Text('Theme three'),
+                )
+              ],
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+            const SizedBox(height: 10),
+            Container(
+              padding: const EdgeInsets.all(20),
+              color: customTheme.primaryMaterialColor.shade50,
+              child: const Text('Shade50_'),
             ),
-            Consumer<ThemeService>(
-              builder: (context, value, child) {
-                return Container(
-                  color: value.neutralColor.shade100,
-                  height: 200,
-                  width: 200,
-                  child: child,
-                );
-              },
-              child: const Center(child: Text('Guy')),
-            )
+            const SizedBox(height: 5),
+            Container(
+              padding: const EdgeInsets.all(20),
+              color: customTheme.primaryMaterialColor.shade100,
+              child: const Text('Shade100'),
+            ),
+            const SizedBox(height: 5),
+            Container(
+              padding: const EdgeInsets.all(20),
+              color: customTheme.primaryMaterialColor.shade200,
+              child: const Text('Shade200'),
+            ),
+            const SizedBox(height: 5),
+            Container(
+              padding: const EdgeInsets.all(20),
+              color: customTheme.primaryMaterialColor.shade300,
+              child: const Text('Shade300'),
+            ),
+            const SizedBox(height: 5),
+            Container(
+              padding: const EdgeInsets.all(20),
+              color: customTheme.primaryMaterialColor.shade400,
+              child: const Text('Shade400'),
+            ),
+            const SizedBox(height: 5),
+            Container(
+              padding: const EdgeInsets.all(20),
+              color: customTheme.primaryMaterialColor.shade500,
+              child: const Text('Shade500'),
+            ),
+            const SizedBox(height: 5),
+            Container(
+              padding: const EdgeInsets.all(20),
+              color: customTheme.primaryMaterialColor.shade600,
+              child: const Text('Shade600'),
+            ),
+            const SizedBox(height: 5),
+            Container(
+              padding: const EdgeInsets.all(20),
+              color: customTheme.primaryMaterialColor.shade700,
+              child: const Text('Shade700'),
+            ),
+            const SizedBox(height: 5),
+            Container(
+              padding: const EdgeInsets.all(20),
+              color: customTheme.primaryMaterialColor.shade800,
+              child: const Text('Shade800'),
+            ),
+            const SizedBox(height: 5),
+            Container(
+              padding: const EdgeInsets.all(20),
+              color: customTheme.primaryMaterialColor.shade900,
+              child: const Text('Shade900'),
+            ),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
       ),
     );
   }

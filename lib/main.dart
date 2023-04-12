@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:json_theme/json_theme_schemas.dart';
-import 'package:poc_json_theme/page/main_page.dart';
+import 'package:poc_json_theme/page/bottom_navigator.dart';
 import 'package:poc_json_theme/services/theme_service.dart';
 import 'package:poc_json_theme/theme.dart';
 import 'package:provider/provider.dart';
@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: themeService.theme,
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const BottomNavigationPage(),
     );
   }
 }
